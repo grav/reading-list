@@ -1,6 +1,6 @@
 # reading-list
 
-Convert Safari's reading list to an html-file.
+Export Safari's reading list as html.
 
 Nice if you want to access your reading list from a non-Apple device, eg. a Kindle.
 
