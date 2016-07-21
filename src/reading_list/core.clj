@@ -5,7 +5,7 @@
 
 (defn html-link [{{title :title} :URIDictionary
                  url :URLString}]
-  (str "<li><a href='" url "'>" title "</a></li>"))
+  (str "<li><a href='" url "'>" title "</a></li>\n"))
 
 (defn parse [in]
   (let [links (->>   in
@@ -17,9 +17,9 @@
                      :Children
                      (map html-link)
                      s/join)]
-    (str "<!DOCTYPE html><html><head><meta charset='UTF-8'><title>Reading list</title></head><body><ul>" links "</ul></body></html>")))
+    (str "<!DOCTYPE html><html><head><meta charset='UTF-8'><title>Reading list</title></head><body><ul>\n" links "</ul></body></html>")))
 
 (defn -main []
   (-> System/in
       parse
-      prn))
+      print))
