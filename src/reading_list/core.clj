@@ -17,7 +17,24 @@
                      :Children
                      (map html-link)
                      s/join)]
-    (str "<!DOCTYPE html><html><head><meta charset='UTF-8'><title>Reading list</title></head><body><ul>\n" links "</ul></body></html>")))
+    (str "<!DOCTYPE html><html><head>
+<meta charset='UTF-8'>
+<title>Reading list</title>
+<style>
+li {
+  font-size: 18pt;
+  line-height: 150%;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+</style>
+</head><body><ul>"
+         links
+"</ul></body></html>")))
 
 (defn -main []
   (-> System/in
