@@ -17,6 +17,12 @@ The above one-liner will do the conversion, create the reading list as a web pag
 
 This will generate an html file with links to all reading list entries.
 
+I did have problems with the XML output at some point, so I used `xmllint` to recover only valid xml:
+
+```
+$ plutil -convert xml1 -o - ~/Library/Safari/Bookmarks.plist | xmllint --recover - 2> /dev/null | lein run > reading-list.html
+```
+
 ## Acknowledgements
 
 Uses [clj-plist](https://github.com/bdesham/clj-plist) for parsing the plist file.
