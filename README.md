@@ -23,6 +23,13 @@ I did have problems with the XML output at some point, so I used `xmllint` to re
 $ plutil -convert xml1 -o - ~/Library/Safari/Bookmarks.plist | xmllint --recover - 2> /dev/null | lein run > reading-list.html
 ```
 
+Or how about putting it directly on S3 (here via Linux, if the file is on Dropbox):
+
+```
+plistutil -i ~/Dropbox/Bookmarks.plist | xmllint --recover - 2> /dev/null | lein run | aws s3 cp - s3://my-bucket.com/some-secret-key-123abc.html --acl public-read
+
+```
+
 ## Acknowledgements
 
 Uses [clj-plist](https://github.com/bdesham/clj-plist) for parsing the plist file.
