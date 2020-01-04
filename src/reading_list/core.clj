@@ -4,7 +4,7 @@
             [clojure.string :as s]))
 
 (defn html-link [{{title :title} :URIDictionary
-                 url :URLString}]
+                   url :URLString}]
   (str "<li><a href='" url "'>" title "</a></li>\n"))
 
 (defn parse [in]
